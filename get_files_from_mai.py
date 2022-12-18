@@ -15,7 +15,7 @@ def get_mai_files(url, dirname=".", cookies=None):
     mainresponse = requests.get(url,
                             timeout=10, cookies=cookies)
     for cur_str in mainresponse.text.split('\n'):
-        if re.search(r"<div role=\"main\"><span id=\"maincontent\">", cur_str):
+        if re.search(r"Файл", cur_str):
             ser = re.findall("href=\"(.*?)\"",cur_str)
             # print(ser)
             for url_i in ser:
